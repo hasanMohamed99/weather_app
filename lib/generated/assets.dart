@@ -6,6 +6,7 @@ class Assets {
   static const String imagesAnimationLoading = 'assets/images/animation_loading.json';
   static const String imagesCloudyIcon = 'assets/images/cloudy_icon.png';
   static const String imagesHumidityIcon = 'assets/images/humidity_icon.png';
+  static const String imagesNoInternet = 'assets/images/no_internet.json';
   static const String imagesPrecipitationIcon = 'assets/images/precipitation_icon.png';
   static const String imagesRainIcon = 'assets/images/rain_icon.png';
   static const String imagesSnowIcon = 'assets/images/snow_icon.png';

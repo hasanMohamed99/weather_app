@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'dart:io';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -135,5 +137,27 @@ class WeatherCubit extends Cubit<WeatherState> {
     } catch (_) {
       emit(WeatherGetSearchWeatherFailure());
     }
+  }
+
+  late ConnectivityResult result;
+  late StreamSubscription subscription;
+  var isConnected = false;
+
+  checkInternet() async {
+    result = await (Connectivity().checkConnectivity());
+    if (result != ConnectivityResult.none) {
+      isConnected = true;
+      emit(AppIsConnectedState());
+      getDayWeather();
+    } else {
+      isConnected = false;
+      emit(AppIsNotConnectedState());
+    }
+  }
+
+  startStreaming() {
+    subscription = Connectivity().onConnectivityChanged.listen((event) async {
+      checkInternet();
+    });
   }
 }

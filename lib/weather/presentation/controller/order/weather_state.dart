@@ -50,3 +50,13 @@ class WeatherGetSearchWeatherFailure extends WeatherState {
   @override
   List<Object> get props => [];
 }
+
+class AppIsConnectedState extends WeatherState {
+  @override
+  List<Object> get props => [];
+}
+
+class AppIsNotConnectedState extends WeatherState {
+  @override
+  List<Object> get props => [];
+}
